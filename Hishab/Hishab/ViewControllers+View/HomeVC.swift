@@ -45,7 +45,11 @@ class HomeVC: UIViewController {
     }
     
     fileprivate func setupViews() {
-        title = "Hishab"
+//        title = "Hishab"
+        let logo = UIImage(named: "logo-transparent")
+        let imageView = UIImageView(image:logo)
+        imageView.contentMode = .scaleAspectFit
+        self.navigationItem.titleView = imageView
         
         //MARK: - Upper Cards
         incomeCard.layer.cornerRadius = 10
