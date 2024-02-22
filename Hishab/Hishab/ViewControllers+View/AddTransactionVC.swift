@@ -6,6 +6,7 @@
 //
 
 import UIKit
+import DropDown
 
 class AddTransactionVC: UIViewController {
     @IBOutlet weak var containerStack: UIStackView!
@@ -22,12 +23,12 @@ class AddTransactionVC: UIViewController {
     
     let categories = ["Category 1", "Category 2", "Category 3", "Category 4"] // dropdown options
     var selectedOption: String?
-
-    var pickerView = UIPickerView()
+    
+    let categoryDropDown = DropDown()
     
     override func viewDidLoad() {
         super.viewDidLoad()
-
+        
         setupViews()
     }
     
@@ -51,13 +52,20 @@ class AddTransactionVC: UIViewController {
         dateInputStack.layer.cornerRadius = 5
         noteInputStack.layer.cornerRadius = 5
         
-        pickerView.delegate = self
-        pickerView.dataSource = self
-        pickerView.tintColor = UIColor(named: "AccentColor")
+        categoryDropDown.dataSource = categories
+        categoryDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
+            selectCategoryBtn.setTitle(item, for: .normal)
+            //TODO: Handle the selected value as needed
+            
+            //then
+            categoryDropDown.hide()
+        }
         
         cancelBtn.layer.cornerRadius = 5
         saveBtn.layer.cornerRadius = 5
     }
+    
+    
     
     @IBAction func cancelBtnPressed(_ sender: Any) {
         dismiss(animated: true, completion: nil)
@@ -70,22 +78,13 @@ class AddTransactionVC: UIViewController {
     }
     
     @IBAction func selectCategoryBtnPressed(_ sender: Any) {
-          let alert = UIAlertController(title: "\n\n\n\n\n\n\n\n\n", message: nil, preferredStyle: .actionSheet)
-          alert.view.addSubview(pickerView)
-
-          let doneAction = UIAlertAction(title: "Done", style: .default) { _ in
-              self.selectCategoryBtn.setTitle(self.selectedOption, for: .normal)
-          }
-
-          alert.addAction(doneAction)
-
-          present(alert, animated: true, completion: nil)
-      }
+        categoryDropDown.show()
+    }
 }
 
 
 extension AddTransactionVC: UIPickerViewDelegate, UIPickerViewDataSource {
-        
+    
     func numberOfComponents(in pickerView: UIPickerView) -> Int {
         return 1
     }
