@@ -68,6 +68,9 @@ class HomeVC: UIViewController {
         //TODO: add action to 3 btn
         
         //MARK: - Transactions
-        
+        transactionsTableView.dataSource = self
+        transactionsTableView.delegate = self
+        transactionsTableView.register(UINib(nibName: "TransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionTableViewCell")
+
     }
 }

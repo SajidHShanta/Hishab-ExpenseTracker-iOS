@@ -12,6 +12,9 @@
 		FF046AE62B8723F100BA085D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = FF046AE52B8723F100BA085D /* Assets.xcassets */; };
 		FF046AE92B8723F100BA085D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF046AE72B8723F100BA085D /* LaunchScreen.storyboard */; };
 		FF046AF52B87305000BA085D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF046AF42B87305000BA085D /* HomeVC.swift */; };
+		FF1AF1B62B87AE77009E480D /* HomeVC+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1AF1B52B87AE77009E480D /* HomeVC+tableView.swift */; };
+		FF8616662B87B63B00EEAA41 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8616642B87B63B00EEAA41 /* TransactionTableViewCell.swift */; };
+		FF8616672B87B63B00EEAA41 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8616652B87B63B00EEAA41 /* TransactionTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -22,6 +25,9 @@
 		FF046AE82B8723F100BA085D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		FF046AEA2B8723F100BA085D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF046AF42B87305000BA085D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
+		FF1AF1B52B87AE77009E480D /* HomeVC+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+tableView.swift"; sourceTree = "<group>"; };
+		FF8616642B87B63B00EEAA41 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
+		FF8616652B87B63B00EEAA41 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -68,7 +74,7 @@
 		FF046AF02B87242200BA085D /* ViewControllers+View */ = {
 			isa = PBXGroup;
 			children = (
-				FF046AF42B87305000BA085D /* HomeVC.swift */,
+				FF1AF1AC2B87A73D009E480D /* Home */,
 			);
 			path = "ViewControllers+View";
 			sourceTree = "<group>";
@@ -94,6 +100,17 @@
 				FF046AE72B8723F100BA085D /* LaunchScreen.storyboard */,
 			);
 			path = Storyboards;
+			sourceTree = "<group>";
+		};
+		FF1AF1AC2B87A73D009E480D /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				FF046AF42B87305000BA085D /* HomeVC.swift */,
+				FF1AF1B52B87AE77009E480D /* HomeVC+tableView.swift */,
+				FF8616642B87B63B00EEAA41 /* TransactionTableViewCell.swift */,
+				FF8616652B87B63B00EEAA41 /* TransactionTableViewCell.xib */,
+			);
+			path = Home;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -154,6 +171,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8616672B87B63B00EEAA41 /* TransactionTableViewCell.xib in Resources */,
 				FF046AE92B8723F100BA085D /* LaunchScreen.storyboard in Resources */,
 				FF046AE62B8723F100BA085D /* Assets.xcassets in Resources */,
 				FF046AE42B8723F000BA085D /* Main.storyboard in Resources */,
@@ -168,6 +186,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF046AF52B87305000BA085D /* HomeVC.swift in Sources */,
+				FF8616662B87B63B00EEAA41 /* TransactionTableViewCell.swift in Sources */,
+				FF1AF1B62B87AE77009E480D /* HomeVC+tableView.swift in Sources */,
 				FF046ADD2B8723F000BA085D /* AppDelegate.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
