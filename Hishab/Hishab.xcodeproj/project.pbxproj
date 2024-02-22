@@ -13,6 +13,7 @@
 		FF046AE92B8723F100BA085D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF046AE72B8723F100BA085D /* LaunchScreen.storyboard */; };
 		FF046AF52B87305000BA085D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF046AF42B87305000BA085D /* HomeVC.swift */; };
 		FF1AF1B62B87AE77009E480D /* HomeVC+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1AF1B52B87AE77009E480D /* HomeVC+tableView.swift */; };
+		FF74BC9E2B87BCA0000FB67C /* AddTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF74BC9D2B87BCA0000FB67C /* AddTransactionVC.swift */; };
 		FF8616662B87B63B00EEAA41 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8616642B87B63B00EEAA41 /* TransactionTableViewCell.swift */; };
 		FF8616672B87B63B00EEAA41 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8616652B87B63B00EEAA41 /* TransactionTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -26,6 +27,7 @@
 		FF046AEA2B8723F100BA085D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF046AF42B87305000BA085D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		FF1AF1B52B87AE77009E480D /* HomeVC+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+tableView.swift"; sourceTree = "<group>"; };
+		FF74BC9D2B87BCA0000FB67C /* AddTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionVC.swift; sourceTree = "<group>"; };
 		FF8616642B87B63B00EEAA41 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		FF8616652B87B63B00EEAA41 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -75,6 +77,7 @@
 			isa = PBXGroup;
 			children = (
 				FF1AF1AC2B87A73D009E480D /* Home */,
+				FF74BC9D2B87BCA0000FB67C /* AddTransactionVC.swift */,
 			);
 			path = "ViewControllers+View";
 			sourceTree = "<group>";
@@ -185,6 +188,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF74BC9E2B87BCA0000FB67C /* AddTransactionVC.swift in Sources */,
 				FF046AF52B87305000BA085D /* HomeVC.swift in Sources */,
 				FF8616662B87B63B00EEAA41 /* TransactionTableViewCell.swift in Sources */,
 				FF1AF1B62B87AE77009E480D /* HomeVC+tableView.swift in Sources */,

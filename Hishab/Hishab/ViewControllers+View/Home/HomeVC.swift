@@ -71,6 +71,19 @@ class HomeVC: UIViewController {
         transactionsTableView.dataSource = self
         transactionsTableView.delegate = self
         transactionsTableView.register(UINib(nibName: "TransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionTableViewCell")
-
+        
+        //MARK: - Add addTransactionBtn
+        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showAddTransactionPage))
+        addTransactionBtn.isUserInteractionEnabled = true
+        addTransactionBtn.addGestureRecognizer(tapGestureRecognizer)
+    }
+    
+    @objc fileprivate func showAddTransactionPage() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        if let customAlert = storyboard.instantiateViewController(withIdentifier: "AddTransactionVC") as? AddTransactionVC {
+            customAlert.modalPresentationStyle = .overCurrentContext
+            customAlert.modalTransitionStyle = .crossDissolve
+            present(customAlert, animated: true, completion: nil)
+        }
     }
 }
