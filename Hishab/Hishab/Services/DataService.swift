@@ -20,6 +20,6 @@ class DataService {
     var transactions: [Transaction] = [
         .init(id: "1", amount: 540, date: Date(), note: "Burger King khaisi", categoryID: "1"),
         .init(id: "2", amount: 2003, date: Date(), note: "Bashundhara Basha", categoryID: "2"),
-        .init(id: "3", amount: 50000, date: Date()-1, note: "Monthly Betun", categoryID: "3")
-    ]
+        .init(id: "3", amount: 50000, date: Date()-1, note: "Monthly Betun", categoryID: "3"),
+    ]        
 }

@@ -9,6 +9,18 @@ import UIKit
 
 class ExpensesVC: UIViewController {
     @IBOutlet weak var tableView: UITableView!
+    
+    var expenses: [Transaction] = DataService.shared.transactions.filter { transaction in
+        if let category = DataService.shared.categories.filter({ $0.id == transaction.categoryID }).first {
+            return category.type == .expense
+        } else {
+            return false
+        }
+    } {
+        didSet {
+            tableView.reloadData()
+        }
+    }
 
     override func viewDidLoad() {
         super.viewDidLoad()

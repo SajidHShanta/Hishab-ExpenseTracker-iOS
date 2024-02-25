@@ -9,12 +9,13 @@ import UIKit
 
 extension IncomeVC: UITableViewDelegate, UITableViewDataSource {
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        3
+        self.incoms.count
     }
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "TransactionTableViewCell", for: indexPath) as! TransactionTableViewCell
         cell.selectionStyle = .none
+        cell.populateData(transaction: self.incoms[indexPath.row])
         return cell
     }
 }

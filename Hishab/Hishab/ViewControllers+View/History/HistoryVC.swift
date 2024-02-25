@@ -11,6 +11,12 @@ class HistoryVC: UIViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    var transactions = DataService.shared.transactions {
+        didSet {
+            tableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

@@ -88,7 +88,12 @@
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <connections>
+                <outlet property="amountLabel" destination="2Av-YP-nf1" id="ge8-df-1Jk"/>
+                <outlet property="categoryName" destination="hZf-Ce-XbW" id="fgc-h6-hgf"/>
                 <outlet property="containerView" destination="k75-eP-1xN" id="gRk-yL-Rc6"/>
+                <outlet property="dateLabel" destination="cIN-pH-oMe" id="Q2d-KW-unT"/>
+                <outlet property="imgView" destination="fue-vj-S2A" id="VAE-wT-rpK"/>
+                <outlet property="noteLabel" destination="jfR-aN-b98" id="gpr-oV-UPj"/>
             </connections>
             <point key="canvasLocation" x="54.198473282442748" y="41.197183098591552"/>
         </tableViewCell>
