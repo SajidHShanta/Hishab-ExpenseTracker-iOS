@@ -631,14 +631,18 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="amountTF" destination="npS-dM-uKG" id="vtP-p3-j8c"/>
                         <outlet property="cancelBtn" destination="45M-gf-gxg" id="0dc-aR-4lW"/>
                         <outlet property="categoryInputStack" destination="DAl-2v-RK2" id="jYi-90-B3a"/>
                         <outlet property="containerStack" destination="nng-dW-ReE" id="OUc-gy-LTX"/>
                         <outlet property="dateInputStack" destination="9Lc-T8-cg0" id="FxN-9G-Nsc"/>
+                        <outlet property="datePicker" destination="KYK-Ig-ZQr" id="tZL-mf-isT"/>
                         <outlet property="nameInputStack" destination="wiI-t3-Jlb" id="kEk-ds-j7y"/>
                         <outlet property="noteInputStack" destination="lsS-96-Xhw" id="ubQ-BC-6Qp"/>
+                        <outlet property="noteTF" destination="TS9-pp-8fq" id="Y5K-yx-rYa"/>
                         <outlet property="saveBtn" destination="rtc-QK-Xxs" id="nTg-9f-yRt"/>
                         <outlet property="selectCategoryBtn" destination="R2C-PH-RIF" id="opR-Q6-aLt"/>
+                        <outlet property="typePicker" destination="vvx-Zz-npG" id="1vT-Oa-sp0"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIt-gq-mZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>

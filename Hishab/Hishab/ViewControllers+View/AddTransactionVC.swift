@@ -16,13 +16,29 @@ class AddTransactionVC: UIViewController {
     @IBOutlet weak var dateInputStack: UIStackView!
     @IBOutlet weak var noteInputStack: UIStackView!
     
+    @IBOutlet weak var typePicker: UISegmentedControl!
+    @IBOutlet weak var amountTF: UITextField!
+    @IBOutlet weak var datePicker: UIDatePicker!
+    @IBOutlet weak var noteTF: UITextField!
+    
     @IBOutlet weak var selectCategoryBtn: UIButton!
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
     
     
-    let categories = ["Category 1", "Category 2", "Category 3", "Category 4"] // dropdown options
-    var selectedOption: String?
+    var selectedTypeSegmentIndex = 1 {
+        didSet {
+            categories = DataService.shared.categories.filter({ $0.type == ((selectedTypeSegmentIndex == 0) ? .income : .expense) })
+            selectedCategory = nil
+            selectCategoryBtn.setTitle("Select Category", for: .normal)
+        }
+    }
+    var categories = DataService.shared.categories.filter({ $0.type == .expense }) {
+        didSet {
+            categoryDropDown.dataSource = categories.map({ $0.name })
+        }
+    }
+    var selectedCategory: Category? = nil
     
     let categoryDropDown = DropDown()
     
@@ -36,6 +52,9 @@ class AddTransactionVC: UIViewController {
         containerStack.layoutMargins = UIEdgeInsets(top: 25, left: 16, bottom: 20, right: 16)
         containerStack.isLayoutMarginsRelativeArrangement = true
         containerStack.layer.cornerRadius = 10
+        
+        typePicker.addTarget(self, action: #selector(typeSegmentedControlValueChanged(_:)), for: .valueChanged)
+        datePicker.maximumDate = Date()
         
         nameInputStack.layoutMargins = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
         categoryInputStack.layoutMargins = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
@@ -52,12 +71,10 @@ class AddTransactionVC: UIViewController {
         dateInputStack.layer.cornerRadius = 5
         noteInputStack.layer.cornerRadius = 5
         
-        categoryDropDown.dataSource = categories
+        categoryDropDown.dataSource = categories.map({ $0.name })
         categoryDropDown.selectionAction = { [unowned self] (index: Int, item: String) in
             selectCategoryBtn.setTitle(item, for: .normal)
-            //TODO: Handle the selected value as needed
-            
-            //then
+            selectedCategory = categories[index]
             categoryDropDown.hide()
         }
         
@@ -72,13 +89,31 @@ class AddTransactionVC: UIViewController {
     }
     
     @IBAction func saveBtnPressed(_ sender: Any) {
-        //TODO: Save all data
         
+        guard let amountText = amountTF.text,
+        let amount = Double(amountText) else {
+            print("Input correct amount!") //TODO: Toast
+            return
+        }
+        
+        guard let category = selectedCategory else {
+            print("Select category!") //TODO: Toast
+            return
+        }
+        
+        DataService.shared.addTransaction(amount: amount, date: datePicker.date, note: noteTF.text, categoryID: category.id)
+
         dismiss(animated: true, completion: nil)
     }
     
     @IBAction func selectCategoryBtnPressed(_ sender: Any) {
         categoryDropDown.show()
+    }
+    
+    @objc func typeSegmentedControlValueChanged(_ sender: UISegmentedControl) {
+        // Handle the value changed event
+        self.selectedTypeSegmentIndex = sender.selectedSegmentIndex
+        print("Selected Segment Index: \(selectedTypeSegmentIndex)")
     }
 }
 
@@ -94,11 +129,6 @@ extension AddTransactionVC: UIPickerViewDelegate, UIPickerViewDataSource {
     }
     
     func pickerView(_ pickerView: UIPickerView, titleForRow row: Int, forComponent component: Int) -> String? {
-        return categories[row]
-    }
-    
-    func pickerView(_ pickerView: UIPickerView, didSelectRow row: Int, inComponent component: Int) {
-        selectedOption = categories[row]
-        selectCategoryBtn.setTitle(selectedOption, for: .normal)
+        return categories[row].name
     }
 }
