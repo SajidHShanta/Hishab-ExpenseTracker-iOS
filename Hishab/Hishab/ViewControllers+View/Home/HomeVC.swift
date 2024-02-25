@@ -36,6 +36,12 @@ class HomeVC: UIViewController {
     @IBOutlet weak var transactionsTableView: UITableView!
     @IBOutlet weak var addTransactionBtn: UIImageView!
     
+    var transactions = DataService.shared.transactions {
+        didSet {
+            transactionsTableView.reloadData()
+        }
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 
@@ -69,7 +75,7 @@ class HomeVC: UIViewController {
         expensesDetailsBtn.isUserInteractionEnabled = true
         let expensesBtnTapGesture = UITapGestureRecognizer(target: self, action: #selector(showExpensesVC))
         expensesDetailsBtn.addGestureRecognizer(expensesBtnTapGesture)
-        
+         
         //MARK: - Actions Stack
         actionContainerStack.layer.cornerRadius = 10
         //TODO: add action to 3 btn
