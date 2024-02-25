@@ -439,6 +439,36 @@
             </objects>
             <point key="canvasLocation" x="983.96946564885491" y="-2.1126760563380285"/>
         </scene>
+        <!--HistoryVC-->
+        <scene sceneID="gbd-8o-bTC">
+            <objects>
+                <viewController storyboardIdentifier="HistoryVC" id="UnI-td-gxV" customClass="HistoryVC" customModule="Hishab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="oTB-GW-lma">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="1r1-tE-eUW">
+                                <rect key="frame" x="16" y="59" width="361" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="jeW-d7-OnE"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="1r1-tE-eUW" firstAttribute="leading" secondItem="jeW-d7-OnE" secondAttribute="leading" constant="16" id="C4j-7I-QIc"/>
+                            <constraint firstItem="1r1-tE-eUW" firstAttribute="top" secondItem="jeW-d7-OnE" secondAttribute="top" id="aqC-ra-Ckh"/>
+                            <constraint firstItem="jeW-d7-OnE" firstAttribute="bottom" secondItem="1r1-tE-eUW" secondAttribute="bottom" id="bBt-pO-wIO"/>
+                            <constraint firstItem="jeW-d7-OnE" firstAttribute="trailing" secondItem="1r1-tE-eUW" secondAttribute="trailing" constant="16" id="iO2-yA-rlI"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="1r1-tE-eUW" id="kng-wq-TEQ"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Gdx-Jl-m9j" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1756" y="-2"/>
+        </scene>
         <!--Add TransactionVC-->
         <scene sceneID="trc-rh-VJB">
             <objects>
@@ -613,7 +643,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="kIt-gq-mZG" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1802.2900763358778" y="15.492957746478874"/>
+            <point key="canvasLocation" x="149" y="694"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="hVF-El-wV8">
@@ -631,7 +661,67 @@
                 </navigationController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="YMZ-j0-hhh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="57.251908396946561" y="-2.1126760563380285"/>
+            <point key="canvasLocation" x="149" y="-2"/>
+        </scene>
+        <!--IncomeVC-->
+        <scene sceneID="MzJ-Up-j3I">
+            <objects>
+                <viewController storyboardIdentifier="IncomeVC" id="v7T-2O-Ioh" customClass="IncomeVC" customModule="Hishab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="q21-Au-lNK">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="R9X-IH-ZiS">
+                                <rect key="frame" x="16" y="59" width="361" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="lF1-ik-3eu"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="R9X-IH-ZiS" firstAttribute="top" secondItem="lF1-ik-3eu" secondAttribute="top" id="TcI-d3-DhO"/>
+                            <constraint firstItem="lF1-ik-3eu" firstAttribute="bottom" secondItem="R9X-IH-ZiS" secondAttribute="bottom" id="aga-LN-U51"/>
+                            <constraint firstItem="R9X-IH-ZiS" firstAttribute="leading" secondItem="lF1-ik-3eu" secondAttribute="leading" constant="16" id="qHh-VI-3tg"/>
+                            <constraint firstItem="lF1-ik-3eu" firstAttribute="trailing" secondItem="R9X-IH-ZiS" secondAttribute="trailing" constant="16" id="rkf-c4-Iwq"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="R9X-IH-ZiS" id="JRM-8b-VGV"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4ML-bf-nxW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="984" y="694"/>
+        </scene>
+        <!--ExpensesVC-->
+        <scene sceneID="Lqn-zX-FHG">
+            <objects>
+                <viewController storyboardIdentifier="ExpensesVC" id="DwW-Ow-sQG" customClass="ExpensesVC" customModule="Hishab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="TmF-Iz-uEH">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" allowsSelection="NO" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="0Qo-ux-fma">
+                                <rect key="frame" x="16" y="59" width="361" height="759"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </tableView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="Qf7-on-ibo"/>
+                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                        <constraints>
+                            <constraint firstItem="0Qo-ux-fma" firstAttribute="top" secondItem="Qf7-on-ibo" secondAttribute="top" id="Ft6-jP-qkI"/>
+                            <constraint firstItem="0Qo-ux-fma" firstAttribute="leading" secondItem="Qf7-on-ibo" secondAttribute="leading" constant="16" id="Q3A-EN-IcW"/>
+                            <constraint firstItem="Qf7-on-ibo" firstAttribute="bottom" secondItem="0Qo-ux-fma" secondAttribute="bottom" id="Xsr-gV-ZWK"/>
+                            <constraint firstItem="Qf7-on-ibo" firstAttribute="trailing" secondItem="0Qo-ux-fma" secondAttribute="trailing" constant="16" id="dMO-Xv-Mlv"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="0Qo-ux-fma" id="Q7e-HW-cYD"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="wKf-4K-I4T" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1755" y="694"/>
         </scene>
     </scenes>
     <resources>
@@ -669,7 +759,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

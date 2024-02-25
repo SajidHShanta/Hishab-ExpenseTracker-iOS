@@ -61,11 +61,21 @@ class HomeVC: UIViewController {
         expensesDetailsBtn.layer.cornerRadius = 15
         balanceDetailsBtn.layer.cornerRadius = 15
         
-        //TODO: add action to 2 details btn
+        //TODO: add action to details btn
+        incomeDetailsBtn.isUserInteractionEnabled = true
+        let incomeBtnTapGesture = UITapGestureRecognizer(target: self, action: #selector(showIncomeVC))
+        incomeDetailsBtn.addGestureRecognizer(incomeBtnTapGesture)
+        
+        expensesDetailsBtn.isUserInteractionEnabled = true
+        let expensesBtnTapGesture = UITapGestureRecognizer(target: self, action: #selector(showExpensesVC))
+        expensesDetailsBtn.addGestureRecognizer(expensesBtnTapGesture)
         
         //MARK: - Actions Stack
         actionContainerStack.layer.cornerRadius = 10
         //TODO: add action to 3 btn
+        historyBtn.isUserInteractionEnabled = true
+        let historyBtnTapGesture = UITapGestureRecognizer(target: self, action: #selector(showHistoryVC))
+        historyBtn.addGestureRecognizer(historyBtnTapGesture)
         
         //MARK: - Transactions
         transactionsTableView.dataSource = self
@@ -73,17 +83,35 @@ class HomeVC: UIViewController {
         transactionsTableView.register(UINib(nibName: "TransactionTableViewCell", bundle: nil), forCellReuseIdentifier: "TransactionTableViewCell")
         
         //MARK: - Add addTransactionBtn
-        let tapGestureRecognizer = UITapGestureRecognizer(target: self, action: #selector(showAddTransactionPage))
+        let addTransactionTapGesture = UITapGestureRecognizer(target: self, action: #selector(showAddTransaction))
         addTransactionBtn.isUserInteractionEnabled = true
-        addTransactionBtn.addGestureRecognizer(tapGestureRecognizer)
+        addTransactionBtn.addGestureRecognizer(addTransactionTapGesture)
     }
     
-    @objc fileprivate func showAddTransactionPage() {
+    @objc fileprivate func showAddTransaction() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let customAlert = storyboard.instantiateViewController(withIdentifier: "AddTransactionVC") as? AddTransactionVC {
             customAlert.modalPresentationStyle = .overCurrentContext
             customAlert.modalTransitionStyle = .crossDissolve
             present(customAlert, animated: true, completion: nil)
         }
+    }
+    
+    @objc fileprivate func showIncomeVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "IncomeVC")
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+
+    @objc fileprivate func showExpensesVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "ExpensesVC")
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    @objc fileprivate func showHistoryVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "HistoryVC")
+        navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

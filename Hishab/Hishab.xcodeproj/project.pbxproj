@@ -15,6 +15,12 @@
 		FF046AF52B87305000BA085D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF046AF42B87305000BA085D /* HomeVC.swift */; };
 		FF1AF1B62B87AE77009E480D /* HomeVC+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1AF1B52B87AE77009E480D /* HomeVC+tableView.swift */; };
 		FF74BC9E2B87BCA0000FB67C /* AddTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF74BC9D2B87BCA0000FB67C /* AddTransactionVC.swift */; };
+		FF83B3BE2B8AFD0B0093F1B3 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B3BD2B8AFD0B0093F1B3 /* HistoryVC.swift */; };
+		FF83B3C22B8B0FCB0093F1B3 /* HistoryVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B3C12B8B0FCB0093F1B3 /* HistoryVC+TableView.swift */; };
+		FF83B3C52B8B11FB0093F1B3 /* IncomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B3C42B8B11FB0093F1B3 /* IncomeVC.swift */; };
+		FF83B3C72B8B123B0093F1B3 /* IncomeVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B3C62B8B123B0093F1B3 /* IncomeVC+TableView.swift */; };
+		FF83B3CA2B8B12850093F1B3 /* ExpensesVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B3C92B8B12850093F1B3 /* ExpensesVC.swift */; };
+		FF83B3CC2B8B12B30093F1B3 /* ExpensesVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B3CB2B8B12B30093F1B3 /* ExpensesVC+TableView.swift */; };
 		FF8616662B87B63B00EEAA41 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8616642B87B63B00EEAA41 /* TransactionTableViewCell.swift */; };
 		FF8616672B87B63B00EEAA41 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8616652B87B63B00EEAA41 /* TransactionTableViewCell.xib */; };
 /* End PBXBuildFile section */
@@ -32,6 +38,12 @@
 		FF046AF42B87305000BA085D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		FF1AF1B52B87AE77009E480D /* HomeVC+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+tableView.swift"; sourceTree = "<group>"; };
 		FF74BC9D2B87BCA0000FB67C /* AddTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionVC.swift; sourceTree = "<group>"; };
+		FF83B3BD2B8AFD0B0093F1B3 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
+		FF83B3C12B8B0FCB0093F1B3 /* HistoryVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryVC+TableView.swift"; sourceTree = "<group>"; };
+		FF83B3C42B8B11FB0093F1B3 /* IncomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = IncomeVC.swift; sourceTree = "<group>"; };
+		FF83B3C62B8B123B0093F1B3 /* IncomeVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "IncomeVC+TableView.swift"; sourceTree = "<group>"; };
+		FF83B3C92B8B12850093F1B3 /* ExpensesVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpensesVC.swift; sourceTree = "<group>"; };
+		FF83B3CB2B8B12B30093F1B3 /* ExpensesVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ExpensesVC+TableView.swift"; sourceTree = "<group>"; };
 		FF8616642B87B63B00EEAA41 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		FF8616652B87B63B00EEAA41 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -100,6 +112,10 @@
 		FF046AF02B87242200BA085D /* ViewControllers+View */ = {
 			isa = PBXGroup;
 			children = (
+				FF83B3C82B8B127B0093F1B3 /* Expenses */,
+				FF83B3C32B8B11EA0093F1B3 /* Income */,
+				FF83B3C02B8B0FB20093F1B3 /* History */,
+				FF83B3BF2B8AFD1E0093F1B3 /* Shared */,
 				FF1AF1AC2B87A73D009E480D /* Home */,
 				FF74BC9D2B87BCA0000FB67C /* AddTransactionVC.swift */,
 			);
@@ -134,10 +150,44 @@
 			children = (
 				FF046AF42B87305000BA085D /* HomeVC.swift */,
 				FF1AF1B52B87AE77009E480D /* HomeVC+tableView.swift */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		FF83B3BF2B8AFD1E0093F1B3 /* Shared */ = {
+			isa = PBXGroup;
+			children = (
 				FF8616642B87B63B00EEAA41 /* TransactionTableViewCell.swift */,
 				FF8616652B87B63B00EEAA41 /* TransactionTableViewCell.xib */,
 			);
-			path = Home;
+			path = Shared;
+			sourceTree = "<group>";
+		};
+		FF83B3C02B8B0FB20093F1B3 /* History */ = {
+			isa = PBXGroup;
+			children = (
+				FF83B3BD2B8AFD0B0093F1B3 /* HistoryVC.swift */,
+				FF83B3C12B8B0FCB0093F1B3 /* HistoryVC+TableView.swift */,
+			);
+			path = History;
+			sourceTree = "<group>";
+		};
+		FF83B3C32B8B11EA0093F1B3 /* Income */ = {
+			isa = PBXGroup;
+			children = (
+				FF83B3C42B8B11FB0093F1B3 /* IncomeVC.swift */,
+				FF83B3C62B8B123B0093F1B3 /* IncomeVC+TableView.swift */,
+			);
+			path = Income;
+			sourceTree = "<group>";
+		};
+		FF83B3C82B8B127B0093F1B3 /* Expenses */ = {
+			isa = PBXGroup;
+			children = (
+				FF83B3C92B8B12850093F1B3 /* ExpensesVC.swift */,
+				FF83B3CB2B8B12B30093F1B3 /* ExpensesVC+TableView.swift */,
+			);
+			path = Expenses;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -257,8 +307,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF74BC9E2B87BCA0000FB67C /* AddTransactionVC.swift in Sources */,
+				FF83B3C72B8B123B0093F1B3 /* IncomeVC+TableView.swift in Sources */,
+				FF83B3C22B8B0FCB0093F1B3 /* HistoryVC+TableView.swift in Sources */,
+				FF83B3BE2B8AFD0B0093F1B3 /* HistoryVC.swift in Sources */,
+				FF83B3CC2B8B12B30093F1B3 /* ExpensesVC+TableView.swift in Sources */,
 				FF046AF52B87305000BA085D /* HomeVC.swift in Sources */,
+				FF83B3CA2B8B12850093F1B3 /* ExpensesVC.swift in Sources */,
 				FF8616662B87B63B00EEAA41 /* TransactionTableViewCell.swift in Sources */,
+				FF83B3C52B8B11FB0093F1B3 /* IncomeVC.swift in Sources */,
 				FF1AF1B62B87AE77009E480D /* HomeVC+tableView.swift in Sources */,
 				FF046ADD2B8723F000BA085D /* AppDelegate.swift in Sources */,
 			);
