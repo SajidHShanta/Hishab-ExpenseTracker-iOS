@@ -29,7 +29,7 @@ class HomeVC: UIViewController {
     
     @IBOutlet weak var reportBtn: UIStackView!
     @IBOutlet weak var historyBtn: UIStackView!
-    @IBOutlet weak var settingsBtn: UIStackView!
+    @IBOutlet weak var categoryBtn: UIStackView!
     
     //MARK: Transactions
     @IBOutlet weak var seeAllTransactionsBtn: UIStackView!
@@ -45,9 +45,11 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Do any additional setup after loading the view.
-        
         setupViews()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        transactions = DataService.shared.transactions
     }
     
     fileprivate func setupViews() {
@@ -83,6 +85,10 @@ class HomeVC: UIViewController {
         let historyBtnTapGesture = UITapGestureRecognizer(target: self, action: #selector(showHistoryVC))
         historyBtn.addGestureRecognizer(historyBtnTapGesture)
         
+        categoryBtn.isUserInteractionEnabled = true
+        let categoryBtnTapGesture = UITapGestureRecognizer(target: self, action: #selector(showCategoryVC))
+        categoryBtn.addGestureRecognizer(categoryBtnTapGesture)
+        
         //MARK: - Transactions
         transactionsTableView.dataSource = self
         transactionsTableView.delegate = self
@@ -100,6 +106,10 @@ class HomeVC: UIViewController {
             customAlert.modalPresentationStyle = .overCurrentContext
             customAlert.modalTransitionStyle = .crossDissolve
             present(customAlert, animated: true, completion: nil)
+            
+            customAlert.onDismiss = {
+                self.transactions = DataService.shared.transactions
+            }
         }
     }
     
@@ -118,6 +128,12 @@ class HomeVC: UIViewController {
     @objc fileprivate func showHistoryVC() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "HistoryVC")
+        navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    @objc fileprivate func showCategoryVC() {
+        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let nextViewController = storyboard.instantiateViewController(withIdentifier: "CategoryVC")
         navigationController?.pushViewController(nextViewController, animated: true)
     }
 }

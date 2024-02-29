@@ -25,6 +25,10 @@
 		FF83B3D12B8B2C7F0093F1B3 /* DataService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B3D02B8B2C7F0093F1B3 /* DataService.swift */; };
 		FF8616662B87B63B00EEAA41 /* TransactionTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8616642B87B63B00EEAA41 /* TransactionTableViewCell.swift */; };
 		FF8616672B87B63B00EEAA41 /* TransactionTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FF8616652B87B63B00EEAA41 /* TransactionTableViewCell.xib */; };
+		FF8D362A2B905F4E00F5C00E /* CategoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF8D36292B905F4E00F5C00E /* CategoryVC.swift */; };
+		FFC3EB752B9064F9008B48D8 /* CategoryVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EB742B9064F9008B48D8 /* CategoryVC+TableView.swift */; };
+		FFC3EB7C2B906622008B48D8 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EB7A2B906622008B48D8 /* CategoryTableViewCell.swift */; };
+		FFC3EB7D2B906622008B48D8 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFC3EB7B2B906622008B48D8 /* CategoryTableViewCell.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -50,6 +54,10 @@
 		FF83B3D02B8B2C7F0093F1B3 /* DataService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DataService.swift; sourceTree = "<group>"; };
 		FF8616642B87B63B00EEAA41 /* TransactionTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TransactionTableViewCell.swift; sourceTree = "<group>"; };
 		FF8616652B87B63B00EEAA41 /* TransactionTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TransactionTableViewCell.xib; sourceTree = "<group>"; };
+		FF8D36292B905F4E00F5C00E /* CategoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryVC.swift; sourceTree = "<group>"; };
+		FFC3EB742B9064F9008B48D8 /* CategoryVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryVC+TableView.swift"; sourceTree = "<group>"; };
+		FFC3EB7A2B906622008B48D8 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
+		FFC3EB7B2B906622008B48D8 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -117,6 +125,7 @@
 		FF046AF02B87242200BA085D /* ViewControllers+View */ = {
 			isa = PBXGroup;
 			children = (
+				FF8D362B2B90604100F5C00E /* Category */,
 				FF83B3C82B8B127B0093F1B3 /* Expenses */,
 				FF83B3C32B8B11EA0093F1B3 /* Income */,
 				FF83B3C02B8B0FB20093F1B3 /* History */,
@@ -204,6 +213,17 @@
 			path = Services;
 			sourceTree = "<group>";
 		};
+		FF8D362B2B90604100F5C00E /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				FF8D36292B905F4E00F5C00E /* CategoryVC.swift */,
+				FFC3EB742B9064F9008B48D8 /* CategoryVC+TableView.swift */,
+				FFC3EB7A2B906622008B48D8 /* CategoryTableViewCell.swift */,
+				FFC3EB7B2B906622008B48D8 /* CategoryTableViewCell.xib */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -265,6 +285,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				FF8616672B87B63B00EEAA41 /* TransactionTableViewCell.xib in Resources */,
+				FFC3EB7D2B906622008B48D8 /* CategoryTableViewCell.xib in Resources */,
 				FF046AE92B8723F100BA085D /* LaunchScreen.storyboard in Resources */,
 				FF046AE62B8723F100BA085D /* Assets.xcassets in Resources */,
 				FF046AE42B8723F000BA085D /* Main.storyboard in Resources */,
@@ -320,11 +341,14 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				FF8D362A2B905F4E00F5C00E /* CategoryVC.swift in Sources */,
+				FFC3EB752B9064F9008B48D8 /* CategoryVC+TableView.swift in Sources */,
 				FF74BC9E2B87BCA0000FB67C /* AddTransactionVC.swift in Sources */,
 				FF83B3D12B8B2C7F0093F1B3 /* DataService.swift in Sources */,
 				FF83B3C72B8B123B0093F1B3 /* IncomeVC+TableView.swift in Sources */,
 				FF83B3CE2B8B1DDF0093F1B3 /* Transaction.swift in Sources */,
 				FF83B3C22B8B0FCB0093F1B3 /* HistoryVC+TableView.swift in Sources */,
+				FFC3EB7C2B906622008B48D8 /* CategoryTableViewCell.swift in Sources */,
 				FF83B3BE2B8AFD0B0093F1B3 /* HistoryVC.swift in Sources */,
 				FF83B3CC2B8B12B30093F1B3 /* ExpensesVC+TableView.swift in Sources */,
 				FF046AF52B87305000BA085D /* HomeVC.swift in Sources */,

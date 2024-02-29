@@ -25,6 +25,7 @@ class AddTransactionVC: UIViewController {
     @IBOutlet weak var cancelBtn: UIButton!
     @IBOutlet weak var saveBtn: UIButton!
     
+    var onDismiss: (() -> Void)?
     
     var selectedTypeSegmentIndex = 1 {
         didSet {
@@ -85,13 +86,13 @@ class AddTransactionVC: UIViewController {
     
     
     @IBAction func cancelBtnPressed(_ sender: Any) {
-        dismiss(animated: true, completion: nil)
+        dismiss(animated: true, completion: dismissViewController)
     }
     
     @IBAction func saveBtnPressed(_ sender: Any) {
         
         guard let amountText = amountTF.text,
-        let amount = Double(amountText) else {
+              let amount = Double(amountText) else {
             print("Input correct amount!") //TODO: Toast
             return
         }
@@ -102,8 +103,8 @@ class AddTransactionVC: UIViewController {
         }
         
         DataService.shared.addTransaction(amount: amount, date: datePicker.date, note: noteTF.text, categoryID: category.id)
-
-        dismiss(animated: true, completion: nil)
+        
+        dismiss(animated: true, completion: dismissViewController)
     }
     
     @IBAction func selectCategoryBtnPressed(_ sender: Any) {
@@ -114,6 +115,12 @@ class AddTransactionVC: UIViewController {
         // Handle the value changed event
         self.selectedTypeSegmentIndex = sender.selectedSegmentIndex
         print("Selected Segment Index: \(selectedTypeSegmentIndex)")
+    }
+    
+    func dismissViewController() {
+        dismiss(animated: true) {
+            self.onDismiss?()
+        }
     }
 }
 

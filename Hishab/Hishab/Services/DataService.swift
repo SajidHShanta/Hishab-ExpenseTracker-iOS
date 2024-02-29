@@ -28,4 +28,8 @@ class DataService {
         let transaction = Transaction(id: UUID().uuidString, amount: amount, date: date, note: note, categoryID: categoryID)
         self.transactions.append(transaction)
     }
+    
+    func saveCategories(_ categories: [Category]) {
+        self.categories = categories
+    }
 }

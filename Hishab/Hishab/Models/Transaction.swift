@@ -17,7 +17,7 @@ struct Transaction {
 
 struct Category {
     let id: String
-    let name: String
+    var name: String
     let icon: String?
     let type: Type
 }
@@ -25,4 +25,13 @@ struct Category {
 enum Type {
     case income
     case expense
+    
+    var name: String {
+        switch self {
+        case .income:
+            return "Income"
+        case .expense:
+            return "Expense"
+        }
+    }
 }
