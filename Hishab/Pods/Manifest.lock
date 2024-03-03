@@ -1,16 +1,24 @@
 PODS:
   - DropDown (2.3.13)
+  - IQKeyboardManager (6.5.17)
+  - ProgressHUD (14.1.1)
 
 DEPENDENCIES:
   - DropDown
+  - IQKeyboardManager
+  - ProgressHUD
 
 SPEC REPOS:
   trunk:
     - DropDown
+    - IQKeyboardManager
+    - ProgressHUD
 
 SPEC CHECKSUMS:
   DropDown: 8a2116376c1981888557f72ec2ffc9a5e0e456ec
+  IQKeyboardManager: 904d013844bbae0abe073f015487bfebe5476335
+  ProgressHUD: abb9136ae23c85204236828562cb9a8ec98efb44
 
-PODFILE CHECKSUM: 1f5115dcc32cb332d12025461077e44158e73eeb
+PODFILE CHECKSUM: d4443ffb628e5f582459b85bc70c18e1693c1778
 
 COCOAPODS: 1.12.1
