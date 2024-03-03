@@ -57,18 +57,4 @@ class CategoryVC: UIViewController {
         
         present(alertController, animated: true, completion: nil)
     }
-    
-    func deleteCategory(at index: Int) {
-        let alertController = UIAlertController(title: "Delete", message: "Are you sure you want to delete?", preferredStyle: .alert)
-        
-        let cancelAction = UIAlertAction(title: "Cancel", style: .cancel, handler: nil)
-        alertController.addAction(cancelAction)
-        
-        let deleteAction = UIAlertAction(title: "Delete", style: .destructive) { (action) in
-            self.categories.remove(at: index)
-        }
-        alertController.addAction(deleteAction)
-        
-        present(alertController, animated: true, completion: nil)
-    }
 }

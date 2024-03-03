@@ -28,12 +28,12 @@ class TransactionTableViewCell: UITableViewCell {
     }
     
     func populateData(transaction: Transaction) {
+        noteLabel.text = transaction.note
+        amountLabel.text = "\(transaction.amount)"
+        dateLabel.text = DateFormatter.localizedString(from: transaction.date, dateStyle: .medium, timeStyle: .none)
+        
         if let category = DataService.shared.categories.filter({ $0.id == transaction.categoryID}).first {
             categoryName.text = category.name
-            
-            noteLabel.text = transaction.note
-            amountLabel.text = "\(transaction.amount)"
-            dateLabel.text = DateFormatter.localizedString(from: transaction.date, dateStyle: .medium, timeStyle: .none)
             
             switch category.type {
             case .income:
@@ -47,11 +47,11 @@ class TransactionTableViewCell: UITableViewCell {
                 amountLabel.textColor = UIColor(named: "Red Dark")
                 imgView.image = UIImage(named: "down")
             }
-            
         } else {
-            self.isHidden = true
             //TODO: Show Eror
             print("No category found for transaction id: \(transaction.id)")
+            
+            categoryName.text = "Other"
         }
     }
 }

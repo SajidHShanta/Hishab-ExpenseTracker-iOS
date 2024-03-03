@@ -21,11 +21,6 @@ extension CategoryVC: UITableViewDelegate, UITableViewDataSource {
             print(categories[indexPath.row])
             self.editCategory(at: indexPath.row)
         }
-        cell.deleteClosure = { [weak self] in
-            guard let self = self else { return }
-            print(categories[indexPath.row])
-            self.deleteCategory(at: indexPath.row)
-        }
         return cell
     }
 }

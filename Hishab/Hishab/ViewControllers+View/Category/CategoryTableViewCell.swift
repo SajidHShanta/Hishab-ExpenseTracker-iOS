@@ -12,10 +12,8 @@ class CategoryTableViewCell: UITableViewCell {
     @IBOutlet weak var categoryNameLabel: UILabel!
     @IBOutlet weak var typeLabel: UILabel!
     @IBOutlet weak var editBtn: UIImageView!
-    @IBOutlet weak var deleteBtn: UIImageView!
     
     var editClosure: (() -> Void)?
-    var deleteClosure: (() -> Void)?
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -24,10 +22,6 @@ class CategoryTableViewCell: UITableViewCell {
         editBtn.isUserInteractionEnabled = true
         let editTap = UITapGestureRecognizer(target: self, action: #selector(editCategory))
         editBtn.addGestureRecognizer(editTap)
-        
-        deleteBtn.isUserInteractionEnabled = true
-        let deleteTap = UITapGestureRecognizer(target: self, action: #selector(deleteCategory))
-        deleteBtn.addGestureRecognizer(deleteTap)
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {
@@ -43,9 +37,5 @@ class CategoryTableViewCell: UITableViewCell {
     
     @objc func editCategory() {
         editClosure?()
-    }
-    
-    @objc func deleteCategory() {
-        deleteClosure?()
     }
 }
