@@ -14,6 +14,10 @@
 		FF046AE92B8723F100BA085D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = FF046AE72B8723F100BA085D /* LaunchScreen.storyboard */; };
 		FF046AF52B87305000BA085D /* HomeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF046AF42B87305000BA085D /* HomeVC.swift */; };
 		FF1AF1B62B87AE77009E480D /* HomeVC+tableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF1AF1B52B87AE77009E480D /* HomeVC+tableView.swift */; };
+		FF3FE9022B9D6EF000CE8314 /* NetworkService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3FE9012B9D6EF000CE8314 /* NetworkService.swift */; };
+		FF3FE9042B9D719B00CE8314 /* UserResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3FE9032B9D719B00CE8314 /* UserResponse.swift */; };
+		FF3FE9072B9D7CB900CE8314 /* PasswordTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3FE9062B9D7CB900CE8314 /* PasswordTF.swift */; };
+		FF3FE9092B9D7CE100CE8314 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3FE9082B9D7CE100CE8314 /* UIColor+Extension.swift */; };
 		FF74BC9E2B87BCA0000FB67C /* AddTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF74BC9D2B87BCA0000FB67C /* AddTransactionVC.swift */; };
 		FF83B3BE2B8AFD0B0093F1B3 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B3BD2B8AFD0B0093F1B3 /* HistoryVC.swift */; };
 		FF83B3C22B8B0FCB0093F1B3 /* HistoryVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B3C12B8B0FCB0093F1B3 /* HistoryVC+TableView.swift */; };
@@ -29,6 +33,9 @@
 		FFC3EB752B9064F9008B48D8 /* CategoryVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EB742B9064F9008B48D8 /* CategoryVC+TableView.swift */; };
 		FFC3EB7C2B906622008B48D8 /* CategoryTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFC3EB7A2B906622008B48D8 /* CategoryTableViewCell.swift */; };
 		FFC3EB7D2B906622008B48D8 /* CategoryTableViewCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = FFC3EB7B2B906622008B48D8 /* CategoryTableViewCell.xib */; };
+		FFDD5EA32B9D6AF700150C0C /* LoginVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD5EA22B9D6AF700150C0C /* LoginVC.swift */; };
+		FFDD5EA62B9D6B2500150C0C /* RegisterVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD5EA52B9D6B2500150C0C /* RegisterVC.swift */; };
+		FFDD5EA82B9D6B5600150C0C /* UserService.swift in Sources */ = {isa = PBXBuildFile; fileRef = FFDD5EA72B9D6B5600150C0C /* UserService.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +50,10 @@
 		FF046AEA2B8723F100BA085D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		FF046AF42B87305000BA085D /* HomeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeVC.swift; sourceTree = "<group>"; };
 		FF1AF1B52B87AE77009E480D /* HomeVC+tableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HomeVC+tableView.swift"; sourceTree = "<group>"; };
+		FF3FE9012B9D6EF000CE8314 /* NetworkService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkService.swift; sourceTree = "<group>"; };
+		FF3FE9032B9D719B00CE8314 /* UserResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserResponse.swift; sourceTree = "<group>"; };
+		FF3FE9062B9D7CB900CE8314 /* PasswordTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTF.swift; sourceTree = "<group>"; };
+		FF3FE9082B9D7CE100CE8314 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FF74BC9D2B87BCA0000FB67C /* AddTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionVC.swift; sourceTree = "<group>"; };
 		FF83B3BD2B8AFD0B0093F1B3 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		FF83B3C12B8B0FCB0093F1B3 /* HistoryVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryVC+TableView.swift"; sourceTree = "<group>"; };
@@ -58,6 +69,9 @@
 		FFC3EB742B9064F9008B48D8 /* CategoryVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CategoryVC+TableView.swift"; sourceTree = "<group>"; };
 		FFC3EB7A2B906622008B48D8 /* CategoryTableViewCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryTableViewCell.swift; sourceTree = "<group>"; };
 		FFC3EB7B2B906622008B48D8 /* CategoryTableViewCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CategoryTableViewCell.xib; sourceTree = "<group>"; };
+		FFDD5EA22B9D6AF700150C0C /* LoginVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginVC.swift; sourceTree = "<group>"; };
+		FFDD5EA52B9D6B2500150C0C /* RegisterVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterVC.swift; sourceTree = "<group>"; };
+		FFDD5EA72B9D6B5600150C0C /* UserService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserService.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -125,6 +139,8 @@
 		FF046AF02B87242200BA085D /* ViewControllers+View */ = {
 			isa = PBXGroup;
 			children = (
+				FFDD5EA42B9D6B1500150C0C /* Register */,
+				FFDD5EA12B9D6AE000150C0C /* Login */,
 				FF8D362B2B90604100F5C00E /* Category */,
 				FF83B3C82B8B127B0093F1B3 /* Expenses */,
 				FF83B3C32B8B11EA0093F1B3 /* Income */,
@@ -140,6 +156,7 @@
 			isa = PBXGroup;
 			children = (
 				FF83B3CD2B8B1DDF0093F1B3 /* Transaction.swift */,
+				FF3FE9032B9D719B00CE8314 /* UserResponse.swift */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -147,6 +164,8 @@
 		FF046AF22B87246C00BA085D /* Extensions */ = {
 			isa = PBXGroup;
 			children = (
+				FF3FE9062B9D7CB900CE8314 /* PasswordTF.swift */,
+				FF3FE9082B9D7CE100CE8314 /* UIColor+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -209,6 +228,8 @@
 			isa = PBXGroup;
 			children = (
 				FF83B3D02B8B2C7F0093F1B3 /* DataService.swift */,
+				FFDD5EA72B9D6B5600150C0C /* UserService.swift */,
+				FF3FE9012B9D6EF000CE8314 /* NetworkService.swift */,
 			);
 			path = Services;
 			sourceTree = "<group>";
@@ -222,6 +243,22 @@
 				FFC3EB7B2B906622008B48D8 /* CategoryTableViewCell.xib */,
 			);
 			path = Category;
+			sourceTree = "<group>";
+		};
+		FFDD5EA12B9D6AE000150C0C /* Login */ = {
+			isa = PBXGroup;
+			children = (
+				FFDD5EA22B9D6AF700150C0C /* LoginVC.swift */,
+			);
+			path = Login;
+			sourceTree = "<group>";
+		};
+		FFDD5EA42B9D6B1500150C0C /* Register */ = {
+			isa = PBXGroup;
+			children = (
+				FFDD5EA52B9D6B2500150C0C /* RegisterVC.swift */,
+			);
+			path = Register;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -345,16 +382,23 @@
 				FFC3EB752B9064F9008B48D8 /* CategoryVC+TableView.swift in Sources */,
 				FF74BC9E2B87BCA0000FB67C /* AddTransactionVC.swift in Sources */,
 				FF83B3D12B8B2C7F0093F1B3 /* DataService.swift in Sources */,
+				FFDD5EA32B9D6AF700150C0C /* LoginVC.swift in Sources */,
 				FF83B3C72B8B123B0093F1B3 /* IncomeVC+TableView.swift in Sources */,
 				FF83B3CE2B8B1DDF0093F1B3 /* Transaction.swift in Sources */,
 				FF83B3C22B8B0FCB0093F1B3 /* HistoryVC+TableView.swift in Sources */,
 				FFC3EB7C2B906622008B48D8 /* CategoryTableViewCell.swift in Sources */,
 				FF83B3BE2B8AFD0B0093F1B3 /* HistoryVC.swift in Sources */,
+				FF3FE9022B9D6EF000CE8314 /* NetworkService.swift in Sources */,
+				FF3FE9042B9D719B00CE8314 /* UserResponse.swift in Sources */,
 				FF83B3CC2B8B12B30093F1B3 /* ExpensesVC+TableView.swift in Sources */,
 				FF046AF52B87305000BA085D /* HomeVC.swift in Sources */,
 				FF83B3CA2B8B12850093F1B3 /* ExpensesVC.swift in Sources */,
+				FFDD5EA82B9D6B5600150C0C /* UserService.swift in Sources */,
 				FF8616662B87B63B00EEAA41 /* TransactionTableViewCell.swift in Sources */,
+				FF3FE9092B9D7CE100CE8314 /* UIColor+Extension.swift in Sources */,
 				FF83B3C52B8B11FB0093F1B3 /* IncomeVC.swift in Sources */,
+				FF3FE9072B9D7CB900CE8314 /* PasswordTF.swift in Sources */,
+				FFDD5EA62B9D6B2500150C0C /* RegisterVC.swift in Sources */,
 				FF1AF1B62B87AE77009E480D /* HomeVC+tableView.swift in Sources */,
 				FF046ADD2B8723F000BA085D /* AppDelegate.swift in Sources */,
 			);
@@ -434,7 +478,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
@@ -491,7 +535,7 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 17.2;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.0;
 				LOCALIZATION_PREFERS_STRING_CATALOGS = YES;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;

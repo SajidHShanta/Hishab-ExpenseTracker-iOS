@@ -45,6 +45,27 @@ class HomeVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        navigationItem.hidesBackButton = true
+        
+        if let lastLoginTime = UserService.shared.lastLoginTime  {
+            if abs(lastLoginTime.timeIntervalSinceNow) >= 10080 { // 7 day
+                print("refresh")
+                //TODO: refresh the token with new api
+            } else {
+//                self.show()
+                // Entry point for Home
+                print("entry of home, api call for all category and transactions")
+//                self.dismiss()
+            }
+        } else {
+            DispatchQueue.main.async {
+                let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                let vc = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+                vc.modalPresentationStyle = .fullScreen
+                self.present(vc, animated: false)
+            }
+        }
+
         setupViews()
     }
     
@@ -53,7 +74,6 @@ class HomeVC: UIViewController {
     }
     
     fileprivate func setupViews() {
-//        title = "Hishab"
         let logo = UIImage(named: "logo-transparent")
         let imageView = UIImageView(image:logo)
         imageView.contentMode = .scaleAspectFit

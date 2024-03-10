@@ -18,6 +18,13 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         IQKeyboardManager.shared().isEnabled = true
+        
+        self.window = UIWindow(frame: UIScreen.main.bounds)
+        
+        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+        let vc = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+        self.window?.rootViewController = UINavigationController(rootViewController: vc)
+        self.window?.makeKeyAndVisible()
 
         return true
     }
