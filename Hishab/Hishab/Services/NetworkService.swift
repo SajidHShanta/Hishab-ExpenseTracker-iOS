@@ -12,8 +12,8 @@ class NetworkService {
     
     private init(){ }
     
-    static let baseURL = "http://hishab.sajidhasan.com"
-//        static let baseURL = "http://localhost:3000" //local host
+//    static let baseURL = "http://hishab.sajidhasan.com"
+        static let baseURL = "http://localhost:3000" //local host
     
     func login(dictionary: [String: Any], completion: @escaping ((Result<UserResponse, AppError>)->())) {
         genericNormalRequest(.post, API_K.LOGIN, parameters: dictionary, completion: completion)
@@ -21,6 +21,18 @@ class NetworkService {
     
     func register(dictionary: [String: Any], completion: @escaping ((Result<UserResponse, AppError>)->())) {
         genericNormalRequest(.post, API_K.LOGIN, parameters: dictionary, completion: completion)
+    }
+    
+    func addCategory(dictionary: [String: Any], completion: @escaping ((Result<AddOrUpdateCategoryResponse, AppError>)->())) {
+        genericNormalRequest(.post, API_K.ADD_CATEGORY, parameters: dictionary, completion: completion)
+    }
+    
+    func getCategories(completion: @escaping ((Result<GetCategoryResponse, AppError>)->())) {
+        genericNormalRequest(.get, API_K.GET_CATEGORIES, completion: completion)
+    }
+    
+    func updateCategoryName(id: Int, dictionary: [String: Any], completion: @escaping ((Result<AddOrUpdateCategoryResponse, AppError>)->())) {
+        genericNormalRequest(.put, API_K.UPDATE_CATEGORY_NAME+"\(String(id))/", parameters: dictionary, completion: completion)
     }
     
 //    func fetchHmeData(dictionary: [String: Any], completion: @escaping ((Result<[Category], AppError>)->())) {
@@ -35,6 +47,11 @@ class NetworkService {
         static let LOGIN = "/api/auth/login"
         static let REGISTER = "/api/auth/register"
 //        static let REFRESH = "auth/oauth/token/refresh"
+        static let ADD_CATEGORY = "/api/items/categories"
+        static let GET_CATEGORIES = "/api/items/categories"
+        static let UPDATE_CATEGORY_NAME = "/api/items/categories/"
+        static let ADD_TRANSACTION = "/api/items/transactions"
+        static let GET_TRANSACTIONS = "/api/items/transactions"
     }
     
     func genericNormalRequest<T: Codable>(_ method: HTTPMethod,

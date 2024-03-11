@@ -488,9 +488,12 @@
                                     <constraint firstAttribute="height" constant="50" id="4Ox-hN-opr"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="plain" title="Button">
+                                <buttonConfiguration key="configuration" style="plain" title="Add New Category">
                                     <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 </buttonConfiguration>
+                                <connections>
+                                    <action selector="addNewCategory:" destination="zq7-ql-nOd" eventType="touchUpInside" id="o7u-3c-XS0"/>
+                                </connections>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="1uf-lq-E2s"/>
@@ -805,7 +808,7 @@
                                                             <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="DxQ-Cs-bqH">
                                                                 <rect key="frame" x="0.0" y="61" width="329" height="45"/>
                                                                 <subviews>
-                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PLC-Ob-Ibt" customClass="PasswordTextField" customModule="GamingHub" customModuleProvider="target">
+                                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="PLC-Ob-Ibt" customClass="PasswordTextField" customModule="Hishab" customModuleProvider="target">
                                                                         <rect key="frame" x="0.0" y="0.0" width="329" height="45"/>
                                                                         <constraints>
                                                                             <constraint firstAttribute="height" constant="45" id="GQK-G7-Vfj"/>
@@ -946,7 +949,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aPH-bd-gze" customClass="PasswordTextField" customModule="GamingHub" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="aPH-bd-gze" customClass="PasswordTextField" customModule="Hishab" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="122.00000000000003" width="329" height="45"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="T1a-we-taw"/>
@@ -954,7 +957,7 @@
                                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                                                 <textInputTraits key="textInputTraits"/>
                                                             </textField>
-                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YjK-0k-IzX" customClass="PasswordTextField" customModule="GamingHub" customModuleProvider="target">
+                                                            <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="YjK-0k-IzX" customClass="PasswordTextField" customModule="Hishab" customModuleProvider="target">
                                                                 <rect key="frame" x="0.0" y="183.00000000000003" width="329" height="45"/>
                                                                 <constraints>
                                                                     <constraint firstAttribute="height" constant="45" id="tbQ-QY-s54"/>
@@ -1024,6 +1027,118 @@
             </objects>
             <point key="canvasLocation" x="1755" y="-715"/>
         </scene>
+        <!--Add CategoryVC-->
+        <scene sceneID="Qfv-Kk-kuF">
+            <objects>
+                <viewController storyboardIdentifier="AddCategoryVC" id="fys-1R-pi5" customClass="AddCategoryVC" customModule="Hishab" customModuleProvider="target" sceneMemberID="viewController">
+                    <view key="view" contentMode="scaleToFill" id="53L-jZ-JWM">
+                        <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" alignment="center" spacing="15" translatesAutoresizingMaskIntoConstraints="NO" id="SgZ-CV-BDO">
+                                <rect key="frame" x="39.333333333333343" y="323.66666666666669" width="314.33333333333326" height="204.66666666666669"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Add New Category" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OrW-VD-sfN">
+                                        <rect key="frame" x="68.999999999999986" y="0.0" width="176.66666666666663" height="24"/>
+                                        <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
+                                        <color key="textColor" name="AccentColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="1" translatesAutoresizingMaskIntoConstraints="NO" id="tzH-1L-uIh">
+                                        <rect key="frame" x="78.666666666666657" y="39" width="157" height="32"/>
+                                        <color key="backgroundColor" name="Red Light"/>
+                                        <segments>
+                                            <segment title="Income"/>
+                                            <segment title="Expenses"/>
+                                        </segments>
+                                        <color key="selectedSegmentTintColor" name="AccentColor"/>
+                                    </segmentedControl>
+                                    <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="10" translatesAutoresizingMaskIntoConstraints="NO" id="XB9-Rx-FM9">
+                                        <rect key="frame" x="10" y="85" width="294.33333333333331" height="119.66666666666669"/>
+                                        <subviews>
+                                            <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="8" translatesAutoresizingMaskIntoConstraints="NO" id="luM-dB-WTb">
+                                                <rect key="frame" x="0.0" y="0.0" width="294.33333333333331" height="59"/>
+                                                <subviews>
+                                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Name" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6Or-8D-YKU">
+                                                        <rect key="frame" x="0.0" y="0.0" width="294.33333333333331" height="17"/>
+                                                        <fontDescription key="fontDescription" type="system" weight="medium" pointSize="14"/>
+                                                        <nil key="textColor"/>
+                                                        <nil key="highlightedColor"/>
+                                                    </label>
+                                                    <textField opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="248" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="Enter category name" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="EZm-ui-vre">
+                                                        <rect key="frame" x="0.0" y="25" width="294.33333333333331" height="34"/>
+                                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                                        <textInputTraits key="textInputTraits" keyboardType="decimalPad"/>
+                                                    </textField>
+                                                </subviews>
+                                                <color key="backgroundColor" systemColor="systemGray6Color"/>
+                                            </stackView>
+                                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="zvt-LC-vRo">
+                                                <rect key="frame" x="0.0" y="69" width="294.33333333333331" height="5"/>
+                                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                                <constraints>
+                                                    <constraint firstAttribute="height" constant="5" id="d4O-3M-I9A"/>
+                                                </constraints>
+                                            </view>
+                                            <stackView opaque="NO" contentMode="scaleToFill" spacing="16" translatesAutoresizingMaskIntoConstraints="NO" id="E28-0f-W0R">
+                                                <rect key="frame" x="0.0" y="84" width="294.33333333333331" height="35.666666666666657"/>
+                                                <subviews>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="cancel" translatesAutoresizingMaskIntoConstraints="NO" id="i0o-68-XgA">
+                                                        <rect key="frame" x="0.0" y="0.0" width="139.33333333333334" height="35.666666666666664"/>
+                                                        <color key="backgroundColor" name="Red Light"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Cancel">
+                                                            <fontDescription key="titleFontDescription" type="system" weight="medium" pointSize="18"/>
+                                                            <color key="baseForegroundColor" name="AccentColor"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="cancelBtnPressed:" destination="fys-1R-pi5" eventType="touchUpInside" id="jpO-Bh-1dk"/>
+                                                        </connections>
+                                                    </button>
+                                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" role="primary" translatesAutoresizingMaskIntoConstraints="NO" id="xRz-ap-OSd">
+                                                        <rect key="frame" x="155.33333333333331" y="0.0" width="139" height="35.666666666666664"/>
+                                                        <color key="backgroundColor" name="AccentColor"/>
+                                                        <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        <state key="normal" title="Button"/>
+                                                        <buttonConfiguration key="configuration" style="plain" title="Add">
+                                                            <fontDescription key="titleFontDescription" type="system" weight="semibold" pointSize="18"/>
+                                                            <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                                        </buttonConfiguration>
+                                                        <connections>
+                                                            <action selector="addBtnPressed:" destination="fys-1R-pi5" eventType="touchUpInside" id="eVC-Ga-h8q"/>
+                                                        </connections>
+                                                    </button>
+                                                </subviews>
+                                            </stackView>
+                                        </subviews>
+                                    </stackView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="XB9-Rx-FM9" firstAttribute="width" secondItem="SgZ-CV-BDO" secondAttribute="width" constant="-20" id="sXB-t7-6kh"/>
+                                </constraints>
+                            </stackView>
+                        </subviews>
+                        <viewLayoutGuide key="safeArea" id="iW7-8J-Mgb"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.90000000000000002" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="SgZ-CV-BDO" firstAttribute="centerY" secondItem="53L-jZ-JWM" secondAttribute="centerY" id="Ks5-li-WRt"/>
+                            <constraint firstItem="SgZ-CV-BDO" firstAttribute="width" secondItem="53L-jZ-JWM" secondAttribute="width" multiplier="0.8" id="LSY-fe-8jY"/>
+                            <constraint firstItem="SgZ-CV-BDO" firstAttribute="centerX" secondItem="53L-jZ-JWM" secondAttribute="centerX" id="ip1-Rj-3JT"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="cancelBtn" destination="i0o-68-XgA" id="Ci8-Px-2E4"/>
+                        <outlet property="containerStack" destination="SgZ-CV-BDO" id="Snd-7j-qMk"/>
+                        <outlet property="nameInputStack" destination="luM-dB-WTb" id="1EE-gA-vRA"/>
+                        <outlet property="nameTF" destination="EZm-ui-vre" id="a1X-Yb-bxr"/>
+                        <outlet property="saveBtn" destination="xRz-ap-OSd" id="yma-lb-ngk"/>
+                        <outlet property="typePicker" destination="tzH-1L-uIh" id="vx3-qZ-f6T"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ud2-od-ooW" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2520" y="694"/>
+        </scene>
     </scenes>
     <resources>
         <image name="addBtn" width="136" height="136"/>
@@ -1061,7 +1176,7 @@
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
         <systemColor name="systemGray6Color">
-            <color red="0.94901960780000005" green="0.94901960780000005" blue="0.96862745100000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color red="0.94901960784313721" green="0.94901960784313721" blue="0.96862745098039216" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
         </systemColor>
     </resources>
 </document>

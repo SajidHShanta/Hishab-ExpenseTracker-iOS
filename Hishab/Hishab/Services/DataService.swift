@@ -12,19 +12,14 @@ class DataService {
     
     private init() { }
     
-    var categories: [Category] = [
-        .init(id: "1", name: "Food", icon: "", type: .expense),
-        .init(id: "2", name: "Rent", icon: "", type: .expense),
-        .init(id: "3", name: "Salary", icon: "", type: .income),
-        .init(id: "4", name: "Salary 2", icon: "", type: .income)
-    ]
+    var categories: [Category] = []
     var transactions: [Transaction] = [
-        .init(id: "1", amount: 540, date: Date(), note: "Burger King khaisi", categoryID: "1"),
-        .init(id: "2", amount: 2003, date: Date(), note: "Bashundhara Basha", categoryID: "2"),
-        .init(id: "3", amount: 50000, date: Date()-1, note: "Monthly Betun", categoryID: "3"),
+//        .init(id: "1", amount: 540, date: Date(), note: "Burger King khaisi", categoryID: 1),
+//        .init(id: "2", amount: 2003, date: Date(), note: "Bashundhara Basha", categoryID: 2),
+//        .init(id: "3", amount: 50000, date: Date()-1, note: "Monthly Betun", categoryID: 3),
     ]
     
-    func addTransaction(amount: Double, date: Date, note: String?, categoryID: String) {
+    func addTransaction(amount: Double, date: Date, note: String?, categoryID: Int) {
         let transaction = Transaction(id: UUID().uuidString, amount: amount, date: date, note: note, categoryID: categoryID)
         self.transactions.append(transaction)
     }

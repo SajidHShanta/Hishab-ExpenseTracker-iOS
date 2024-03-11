@@ -12,26 +12,7 @@ struct Transaction {
     let amount: Double
     let date: Date
     let note: String?
-    let categoryID: String
+    let categoryID: Int
 }
 
-struct Category {
-    let id: String
-    var name: String
-    let icon: String?
-    let type: Type
-}
 
-enum Type {
-    case income
-    case expense
-    
-    var name: String {
-        switch self {
-        case .income:
-            return "Income"
-        case .expense:
-            return "Expense"
-        }
-    }
-}
