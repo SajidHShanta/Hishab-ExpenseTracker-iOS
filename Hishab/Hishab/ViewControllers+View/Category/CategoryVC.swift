@@ -31,7 +31,12 @@ class CategoryVC: UIViewController {
             switch result {
             case .success(let success):
                 if success.status == 200 {
-                    DataService.shared.categories = success.categories
+                    guard let categoriesResponse = success.categories else {
+                        //TODO - show toast
+                        print("error in retrieving categories")
+                        return
+                    }
+                    DataService.shared.categories = categoriesResponse
                     self.categories = DataService.shared.categories
                 } else {
                     print(success.message)

@@ -36,26 +36,19 @@ class HomeVC: UIViewController {
     @IBOutlet weak var transactionsTableView: UITableView!
     @IBOutlet weak var addTransactionBtn: UIImageView!
     
-    var transactions = DataService.shared.transactions {
-        didSet {
-            transactionsTableView.reloadData()
-        }
-    }
-    
     override func viewDidLoad() {
         super.viewDidLoad()
 
         navigationItem.hidesBackButton = true
         
         if let lastLoginTime = UserService.shared.lastLoginTime  {
-            if abs(lastLoginTime.timeIntervalSinceNow) >= 10080 { // 7 day
+            if abs(lastLoginTime.timeIntervalSinceNow) >= 604800 { // 7 day
                 print("refresh")
                 //TODO: refresh the token with new api
             } else {
-//                self.show()
                 // Entry point for Home
                 print("entry of home, api call for all category and transactions")
-//                self.dismiss()
+                setupData()
             }
         } else {
             DispatchQueue.main.async {
@@ -65,12 +58,60 @@ class HomeVC: UIViewController {
                 self.present(vc, animated: false)
             }
         }
-
-        setupViews()
+        
+//        setupData()
     }
     
-    override func viewDidAppear(_ animated: Bool) {
-        transactions = DataService.shared.transactions
+    fileprivate func setupData() {
+        let group = DispatchGroup()
+        group.enter()
+        NetworkService.shared.getCategories() { result in
+            group.leave()
+            switch result {
+            case .success(let success):
+                if success.status == 200 {
+                    guard let categoriesResponse = success.categories else {
+                        //TODO: - show toast
+                        print("error in retrieving categories")
+                        return
+                    }
+                    DataService.shared.categories = categoriesResponse
+                } else {
+                    print(success.message)
+                    // TODO: - show toast
+                }
+            case .failure(let failure):
+                //TODO-show toast
+                print(failure.localizedDescription)
+            }
+        }
+        
+        group.enter()
+        NetworkService.shared.getTransactions { result in
+            group.leave()
+            switch result {
+            case .success(let success):
+                if success.status == 200 {
+                    guard let transactionsResponse = success.transactions else {
+                        //TODO: - show toast
+                        print("error in retrieving transactions")
+                        return
+                    }
+                    DataService.shared.transactions = transactionsResponse
+//                    self.transactions = DataService.shared.transactions
+                }
+            case .failure(let failure):
+                //TODO: show toast
+                print(failure.localizedDescription)
+            }
+        }
+        
+//        self.view.show()
+        group.notify(queue: .main) {
+//            self.view.hide()
+            self.setupViews()
+            self.refreshData()
+        }
     }
     
     fileprivate func setupViews() {
@@ -120,6 +161,29 @@ class HomeVC: UIViewController {
         addTransactionBtn.addGestureRecognizer(addTransactionTapGesture)
     }
     
+    fileprivate func refreshData() {
+        transactionsTableView.reloadData()
+        //update TF values
+        var totalIncome: Double = 0
+        var totalExpenses: Double = 0
+        for transaction in DataService.shared.transactions {
+            guard let amount = Double(transaction.amount) else { return }
+            guard let category = DataService.shared.categories.filter({ $0.id == transaction.categoryID }).first else {
+                return
+            }
+            
+            switch category.type {
+            case .income:
+                totalIncome += amount
+            case .expense:
+                totalExpenses += amount
+            }
+        }
+        incomeAmountLabel.text = String(totalIncome)
+        expensesAmountLabel.text = String(totalExpenses)
+        balanceAmountLabel.text = String(totalIncome-totalExpenses)
+    }
+    
     @objc fileprivate func showAddTransaction() {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         if let customAlert = storyboard.instantiateViewController(withIdentifier: "AddTransactionVC") as? AddTransactionVC {
@@ -128,7 +192,7 @@ class HomeVC: UIViewController {
             present(customAlert, animated: true, completion: nil)
             
             customAlert.onDismiss = {
-                self.transactions = DataService.shared.transactions
+                self.setupData()
             }
         }
     }

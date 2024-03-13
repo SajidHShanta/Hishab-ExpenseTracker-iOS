@@ -13,12 +13,10 @@ class AddTransactionVC: UIViewController {
     
     @IBOutlet weak var nameInputStack: UIStackView!
     @IBOutlet weak var categoryInputStack: UIStackView!
-    @IBOutlet weak var dateInputStack: UIStackView!
     @IBOutlet weak var noteInputStack: UIStackView!
     
     @IBOutlet weak var typePicker: UISegmentedControl!
     @IBOutlet weak var amountTF: UITextField!
-    @IBOutlet weak var datePicker: UIDatePicker!
     @IBOutlet weak var noteTF: UITextField!
     
     @IBOutlet weak var selectCategoryBtn: UIButton!
@@ -55,21 +53,17 @@ class AddTransactionVC: UIViewController {
         containerStack.layer.cornerRadius = 10
         
         typePicker.addTarget(self, action: #selector(typeSegmentedControlValueChanged(_:)), for: .valueChanged)
-        datePicker.maximumDate = Date()
         
         nameInputStack.layoutMargins = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
         categoryInputStack.layoutMargins = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
-        dateInputStack.layoutMargins = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
         noteInputStack.layoutMargins = UIEdgeInsets(top: 7, left: 7, bottom: 7, right: 7)
         
         nameInputStack.isLayoutMarginsRelativeArrangement = true
         categoryInputStack.isLayoutMarginsRelativeArrangement = true
-        dateInputStack.isLayoutMarginsRelativeArrangement = true
         noteInputStack.isLayoutMarginsRelativeArrangement = true
         
         nameInputStack.layer.cornerRadius = 5
         categoryInputStack.layer.cornerRadius = 5
-        dateInputStack.layer.cornerRadius = 5
         noteInputStack.layer.cornerRadius = 5
         
         categoryDropDown.dataSource = categories.map({ $0.name })
@@ -102,9 +96,34 @@ class AddTransactionVC: UIViewController {
             return
         }
         
-        DataService.shared.addTransaction(amount: amount, date: datePicker.date, note: noteTF.text, categoryID: category.id)
+        var parameters: [String : Any] = [:]
+        if (noteTF.text != nil) {
+            parameters = [
+                "amount": amountText,
+                "note": noteTF.text ?? "",
+                "categoryID": category.id
+            ]
+        } else {
+            parameters = [
+                "amount": amountText,
+                "categoryID": category.id
+            ]
+        }
         
-        dismiss(animated: true, completion: dismissViewController)
+        NetworkService.shared.addTransaction(dictionary: parameters) { result in
+            switch result {
+            case .success(let success):
+                //TODO: Show Toast
+                print(success.message)
+
+                if success.status == 201 {
+                    self.dismiss(animated: true, completion: self.dismissViewController)
+                }
+            case .failure(let failure):
+                //TODO: Show Toast
+                print(failure.localizedDescription)
+            }
+        }
     }
     
     @IBAction func selectCategoryBtnPressed(_ sender: Any) {

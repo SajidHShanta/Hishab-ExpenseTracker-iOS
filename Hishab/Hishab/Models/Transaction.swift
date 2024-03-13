@@ -7,12 +7,22 @@
 
 import Foundation
 
-struct Transaction {
-    let id: String
-    let amount: Double
-    let date: Date
+struct Transaction: Codable {
+    let id: Int
+    let amount: String
+    let date: String
     let note: String?
     let categoryID: Int
 }
 
+struct GetTransactionsResponse: Codable {
+    let status: Int
+    let message: String
+    let transactions: [Transaction]?
+}
+
+struct AddTransactionResponse: Codable {
+    let status: Int
+    let message: String
+}
 

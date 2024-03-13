@@ -30,7 +30,24 @@ class TransactionTableViewCell: UITableViewCell {
     func populateData(transaction: Transaction) {
         noteLabel.text = transaction.note
         amountLabel.text = "\(transaction.amount)"
-        dateLabel.text = DateFormatter.localizedString(from: transaction.date, dateStyle: .medium, timeStyle: .none)
+        
+        let dateString = transaction.date
+     
+        let dateFormatter = DateFormatter()
+        dateFormatter.dateFormat = "yyyy-MM-dd'T'HH:mm:ss.SSS'Z'"
+
+        // Attempt to convert the date string to a Date object
+        if let date = dateFormatter.date(from: dateString) {
+//            print(date)
+            let formattedDateString = DateFormatter.localizedString(from: date, dateStyle: .medium, timeStyle: .none)
+//            print(formattedDateString)
+            dateLabel.text = formattedDateString
+        } else {
+            print("Failed to convert date string.")
+            dateLabel.text = ""
+        }
+        
+
         
         if let category = DataService.shared.categories.filter({ $0.id == transaction.categoryID}).first {
             categoryName.text = category.name

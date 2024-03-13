@@ -31,7 +31,7 @@ enum CategoryType: String, Codable {
 struct GetCategoryResponse: Codable {
     let status: Int
     let message: String
-    let categories: [Category]
+    let categories: [Category]?
 }
 
 struct AddOrUpdateCategoryResponse: Codable {

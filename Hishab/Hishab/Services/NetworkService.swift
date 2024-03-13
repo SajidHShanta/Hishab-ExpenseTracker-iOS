@@ -35,6 +35,14 @@ class NetworkService {
         genericNormalRequest(.put, API_K.UPDATE_CATEGORY_NAME+"\(String(id))/", parameters: dictionary, completion: completion)
     }
     
+    func addTransaction(dictionary: [String: Any], completion: @escaping ((Result<AddTransactionResponse, AppError>)->())) {
+        genericNormalRequest(.post, API_K.ADD_TRANSACTION, parameters: dictionary, completion: completion)
+    }
+    
+    func getTransactions(completion: @escaping ((Result<GetTransactionsResponse, AppError>)->())) {
+        genericNormalRequest(.get, API_K.GET_TRANSACTIONS, completion: completion)
+    }
+    
 //    func fetchHmeData(dictionary: [String: Any], completion: @escaping ((Result<[Category], AppError>)->())) {
 //        genericNormalRequest(.get, API_K.HOME, parameters: dictionary, completion: completion)
 //    }
