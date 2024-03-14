@@ -58,8 +58,10 @@ class HomeVC: UIViewController {
                 self.present(vc, animated: false)
             }
         }
-        
-//        setupData()
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        self.refreshData()
     }
     
     fileprivate func setupData() {

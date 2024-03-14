@@ -17,7 +17,7 @@ class UserResponse:Codable {
 
 class User: Codable {
     let id: Int
-    let name: String? //TODO: make it strong
+    let name: String
     let email: String
-    let password: String
+//    let password: String
 }
