@@ -12,8 +12,8 @@ class NetworkService {
     
     private init(){ }
     
-//    static let baseURL = "http://hishab.sajidhasan.com"
-        static let baseURL = "http://localhost:3000" //local host
+    static let baseURL = "http://hishab.sajidhasan.com"
+//        static let baseURL = "http://localhost:3000" //local host
     
     func login(dictionary: [String: Any], completion: @escaping ((Result<UserResponse, AppError>)->())) {
         genericNormalRequest(.post, API_K.LOGIN, parameters: dictionary, completion: completion)

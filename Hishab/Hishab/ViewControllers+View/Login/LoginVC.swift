@@ -80,7 +80,7 @@ class LoginVC: UIViewController, UITextFieldDelegate {
                     
                     
                     // Login successfull!
-                    UserService.shared.saveUserData(name: user.name ?? "user name", email: user.email, accessToken: accessToken, refreshToken: refreshToken)
+                    UserService.shared.saveUserData(name: user.name, email: user.email, accessToken: accessToken, refreshToken: refreshToken)
                     let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
                     let vc = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
                     

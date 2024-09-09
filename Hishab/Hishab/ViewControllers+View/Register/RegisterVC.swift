@@ -73,6 +73,23 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
     
     @IBAction func register(_ sender: UIButton) {
         
+        guard let email = emailTF.text else {
+            //TODO: show toast
+//            self.view.makeToast("Invalid Email!")
+            return
+        }
+        if !isValidEmail(email) {
+            //TODO: show toast
+            //            self.view.makeToast("Invalid Email!")
+            return
+        }
+        
+        guard let name = nameTF.text else {
+            //TODO: show toast
+//            self.view.makeToast("Invalid Name!")
+            return
+        }
+        
         guard let password = passwordTF.text,
               let confirmPassword = confirmPasswordTF.text else {
 //                  self.view.makeToast("Invalid Password!")
@@ -81,6 +98,51 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
         
         if password == confirmPassword {
             //TODO: - create account
+            let parameters: [String: String] = [
+                "email": email,
+                "name": name,
+                "password": password
+            ]
+            
+            NetworkService.shared.register(dictionary: parameters) { result in
+                switch result {
+                case .success(let success):
+                    if success.status == 200 {
+                        guard let accessToken = success.accessToken,
+                              let refreshToken = success.refreshToken,
+                              let user = success.user else {
+                            //                    self.view.makeToast("Please check your email, password and try again")
+                            fatalError()
+                        }
+                        
+                        
+                        // Login successfull!
+                        UserService.shared.saveUserData(name: user.name, email: user.email, accessToken: accessToken, refreshToken: refreshToken)
+                        let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+                        let vc = storyBoard.instantiateViewController(withIdentifier: "HomeVC") as! HomeVC
+                        
+                        let appDelegate = UIApplication.shared.delegate as! AppDelegate
+                        appDelegate.window?.rootViewController = UINavigationController(rootViewController: vc)
+                        
+                        let options: UIView.AnimationOptions = .transitionCrossDissolve
+                        
+                        let duration: TimeInterval = 0.3
+                        
+                        if let window = appDelegate.window {
+                            UIView.transition(with:  window, duration: duration, options: options, animations: {}, completion:
+                                                { completed in
+                            })
+                        }
+                    } else {
+                        // TODO: show toasr
+                        print(success.message)
+                    }
+                    
+                case .failure(let failure):
+                    //TODO: show toast
+                    print(failure.localizedDescription)
+                }
+            }
             
 //            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
 //            let vc = storyBoard.instantiateViewController(withIdentifier: "MainTab") as! MainTabVC
@@ -89,6 +151,13 @@ class RegisterVC: UIViewController, UITextFieldDelegate {
         } else {
 //            self.view.makeToast("Password and Confirm password are not same!")
         }
+    }
+    
+    func isValidEmail(_ email: String) -> Bool {
+        let emailRegex = "[A-Z0-9a-z._%+-]+@[A-Za-z0-9.-]+\\.[A-Za-z]{2,}"
+
+        let emailPredicate = NSPredicate(format: "SELF MATCHES %@", emailRegex)
+        return emailPredicate.evaluate(with: email)
     }
     
     @objc func nameTFDidBeginEditing() {

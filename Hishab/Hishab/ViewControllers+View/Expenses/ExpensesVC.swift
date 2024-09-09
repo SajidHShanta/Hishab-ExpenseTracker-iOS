@@ -30,7 +30,7 @@ class ExpensesVC: UIViewController {
     }
     
     fileprivate func setupViews() {
-        title = "Income History"
+        title = "Expense History"
         
         tableView.delegate = self
         tableView.dataSource = self

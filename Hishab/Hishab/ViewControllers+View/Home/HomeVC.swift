@@ -41,13 +41,18 @@ class HomeVC: UIViewController {
 
         navigationItem.hidesBackButton = true
         
-        if let lastLoginTime = UserService.shared.lastLoginTime  {
+        if let lastLoginTime = UserService.shared.lastLoginTime,
+           let _ = UserService.shared.access_token
+        {
             if abs(lastLoginTime.timeIntervalSinceNow) >= 604800 { // 7 day
                 print("refresh")
                 //TODO: refresh the token with new api
+                logoutTapped() // will remove it after implementing refresh 
+                
             } else {
                 // Entry point for Home
                 print("entry of home, api call for all category and transactions")
+                self.setupViews()
                 setupData()
             }
         } else {
@@ -111,16 +116,28 @@ class HomeVC: UIViewController {
 //        self.view.show()
         group.notify(queue: .main) {
 //            self.view.hide()
-            self.setupViews()
             self.refreshData()
         }
     }
     
     fileprivate func setupViews() {
         let logo = UIImage(named: "logo-transparent")
-        let imageView = UIImageView(image:logo)
+        let imageView = UIImageView(image: logo)
         imageView.contentMode = .scaleAspectFit
-        self.navigationItem.titleView = imageView
+        navigationItem.titleView = imageView
+        
+        // Create a UIButton with an image
+        let logoutButton = UIButton(type: .custom)
+//        logoutButton.setImage(UIImage(named: "logout"), for: .normal)
+        if let originalImage = UIImage(named: "logout") {
+            let resizedImage = originalImage.withRenderingMode(.alwaysOriginal).resized(to: CGSize(width: 25, height: 25))
+            logoutButton.setImage(resizedImage, for: .normal)
+        }
+        logoutButton.addTarget(self, action: #selector(logoutTapped), for: .touchUpInside)
+        logoutButton.frame = CGRect(x: 0, y: 0, width: 50, height: 50) // Adjust the frame as needed
+        
+        let barButtonItem = UIBarButtonItem(customView: logoutButton)
+        navigationItem.rightBarButtonItem = barButtonItem
         
         //MARK: - Upper Cards
         incomeCard.layer.cornerRadius = 10
@@ -131,6 +148,8 @@ class HomeVC: UIViewController {
         incomeDetailsBtn.layer.cornerRadius = 15
         expensesDetailsBtn.layer.cornerRadius = 15
         balanceDetailsBtn.layer.cornerRadius = 15
+        
+        dateLabel.text = Date().formatted(date: .abbreviated, time: .omitted)
         
         //TODO: add action to details btn
         incomeDetailsBtn.isUserInteractionEnabled = true
@@ -151,6 +170,10 @@ class HomeVC: UIViewController {
         categoryBtn.isUserInteractionEnabled = true
         let categoryBtnTapGesture = UITapGestureRecognizer(target: self, action: #selector(showCategoryVC))
         categoryBtn.addGestureRecognizer(categoryBtnTapGesture)
+        
+        seeAllTransactionsBtn.isUserInteractionEnabled = true
+        let seeAllTransactionsBtnTapGesture = UITapGestureRecognizer(target: self, action: #selector(showHistoryVC))
+        seeAllTransactionsBtn.addGestureRecognizer(seeAllTransactionsBtnTapGesture)
         
         //MARK: - Transactions
         transactionsTableView.dataSource = self
@@ -181,9 +204,9 @@ class HomeVC: UIViewController {
                 totalExpenses += amount
             }
         }
-        incomeAmountLabel.text = String(totalIncome)
-        expensesAmountLabel.text = String(totalExpenses)
-        balanceAmountLabel.text = String(totalIncome-totalExpenses)
+        incomeAmountLabel.text = "$"+String(totalIncome)
+        expensesAmountLabel.text = "$"+String(totalExpenses)
+        balanceAmountLabel.text = "$"+String(totalIncome-totalExpenses)
     }
     
     @objc fileprivate func showAddTransaction() {
@@ -221,5 +244,15 @@ class HomeVC: UIViewController {
         let storyboard = UIStoryboard(name: "Main", bundle: nil)
         let nextViewController = storyboard.instantiateViewController(withIdentifier: "CategoryVC")
         navigationController?.pushViewController(nextViewController, animated: true)
+    }
+    
+    @objc fileprivate func logoutTapped() {
+        UserService.shared.deleteUserData()
+        DispatchQueue.main.async {
+            let storyBoard : UIStoryboard = UIStoryboard(name: "Main", bundle:nil)
+            let vc = storyBoard.instantiateViewController(withIdentifier: "LoginVC") as! LoginVC
+            vc.modalPresentationStyle = .fullScreen
+            self.present(vc, animated: false)
+        }
     }
 }

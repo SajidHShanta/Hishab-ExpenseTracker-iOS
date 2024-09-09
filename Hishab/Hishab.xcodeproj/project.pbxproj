@@ -20,6 +20,7 @@
 		FF3FE9072B9D7CB900CE8314 /* PasswordTF.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3FE9062B9D7CB900CE8314 /* PasswordTF.swift */; };
 		FF3FE9092B9D7CE100CE8314 /* UIColor+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3FE9082B9D7CE100CE8314 /* UIColor+Extension.swift */; };
 		FF3FE90B2B9DB91B00CE8314 /* Category.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF3FE90A2B9DB91B00CE8314 /* Category.swift */; };
+		FF567C5C2BA81AB300468B3A /* UIImage+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF567C5B2BA81AB300468B3A /* UIImage+Extension.swift */; };
 		FF74BC9E2B87BCA0000FB67C /* AddTransactionVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF74BC9D2B87BCA0000FB67C /* AddTransactionVC.swift */; };
 		FF83B3BE2B8AFD0B0093F1B3 /* HistoryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B3BD2B8AFD0B0093F1B3 /* HistoryVC.swift */; };
 		FF83B3C22B8B0FCB0093F1B3 /* HistoryVC+TableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = FF83B3C12B8B0FCB0093F1B3 /* HistoryVC+TableView.swift */; };
@@ -58,6 +59,7 @@
 		FF3FE9062B9D7CB900CE8314 /* PasswordTF.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordTF.swift; sourceTree = "<group>"; };
 		FF3FE9082B9D7CE100CE8314 /* UIColor+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor+Extension.swift"; sourceTree = "<group>"; };
 		FF3FE90A2B9DB91B00CE8314 /* Category.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Category.swift; sourceTree = "<group>"; };
+		FF567C5B2BA81AB300468B3A /* UIImage+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIImage+Extension.swift"; sourceTree = "<group>"; };
 		FF74BC9D2B87BCA0000FB67C /* AddTransactionVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddTransactionVC.swift; sourceTree = "<group>"; };
 		FF83B3BD2B8AFD0B0093F1B3 /* HistoryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HistoryVC.swift; sourceTree = "<group>"; };
 		FF83B3C12B8B0FCB0093F1B3 /* HistoryVC+TableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "HistoryVC+TableView.swift"; sourceTree = "<group>"; };
@@ -170,6 +172,7 @@
 			children = (
 				FF3FE9062B9D7CB900CE8314 /* PasswordTF.swift */,
 				FF3FE9082B9D7CE100CE8314 /* UIColor+Extension.swift */,
+				FF567C5B2BA81AB300468B3A /* UIImage+Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -397,6 +400,7 @@
 				FF3FE9022B9D6EF000CE8314 /* NetworkService.swift in Sources */,
 				FF3FE9042B9D719B00CE8314 /* UserResponse.swift in Sources */,
 				FF83B3CC2B8B12B30093F1B3 /* ExpensesVC+TableView.swift in Sources */,
+				FF567C5C2BA81AB300468B3A /* UIImage+Extension.swift in Sources */,
 				FF046AF52B87305000BA085D /* HomeVC.swift in Sources */,
 				FF83B3CA2B8B12850093F1B3 /* ExpensesVC.swift in Sources */,
 				FFDD5EA82B9D6B5600150C0C /* UserService.swift in Sources */,
